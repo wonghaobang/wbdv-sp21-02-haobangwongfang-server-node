@@ -5,4 +5,5 @@ const quizAttemptModel = mongoose.model(
     'QuizAttemptModel',
     quizAttemptSchema
 )
+
 module.exports = quizAttemptModel

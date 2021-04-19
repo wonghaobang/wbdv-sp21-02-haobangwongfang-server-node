@@ -1,6 +1,11 @@
 const express = require('express')      // express exports a function which we can invoke
 const app = express()       // once it invokes, all sort of things happen, it sets up/ initializes itself/ gets ready etc..
 
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/whiteboard-02', {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -21,6 +26,10 @@ quizzesController(app)
 
 const questionsController = require('./controllers/questions-controller')
 questionsController(app)
+
+
+const quizAttemptsController = require('./controllers/quiz-attempts-controller')
+quizAttemptsController(app)
 
 
 
