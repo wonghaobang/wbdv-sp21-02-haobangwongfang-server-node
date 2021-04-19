@@ -7,7 +7,8 @@ app.use(bodyParser.json())
 
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/whiteboard-02', {useNewUrlParser: true, useUnifiedTopology: true});
+// mongoose.connect('mongodb://localhost:27017/whiteboard-02', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://wonghaobang:H123456b@cluster0.wejnv.mongodb.net/whiteboard-02-remote?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Configures CORS
 app.use(function (req, res, next) {
@@ -33,4 +34,4 @@ quizAttemptsController(app)
 
 
 
-app.listen(4000, () => console.log("listening on port 4000"))
+app.listen(4000)
