@@ -7,8 +7,15 @@ app.use(bodyParser.json())
 
 
 const mongoose = require('mongoose');
+
+// this is local
 // mongoose.connect('mongodb://localhost:27017/whiteboard-02', {useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.connect('mongodb+srv://wonghaobang:H123456b@cluster0.wejnv.mongodb.net/whiteboard-02-remote?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+
+const uri = process.env.MONGODB_URI;
+// mongoose.connect('mongodb+srv://wonghaobang:H123456b@cluster0.wejnv.mongodb.net/whiteboard-02-remote?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+
+
 
 // Configures CORS
 app.use(function (req, res, next) {
